@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Redes Sociais </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Animação de partículas coloridas no fundo */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Comic Sans MS', sans-serif;
+            color: #fff;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animação das partículas coloridas */
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.7);
+            animation: float 10s linear infinite;
+        }
+
+        @keyframes float {
+            from { transform: translateY(0) translateX(0); opacity: 1; }
+            to { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+        }
+
+        /* Container centralizado */
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        /* Estilos dos links sociais */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .social-link {
+            text-decoration: none;
+            font-size: 1.5rem;
+            padding: 15px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid white;
+            transition: transform 0.3s ease;
+            animation: bounce 1s infinite alternate;
+        }
+
+        /* Cores vibrantes para as plataformas */
+        .instagram { background-color: #e1306c; }
+        .tiktok { background-color: #010101; }
+        .roblox { background-color: #e71a0f; }
+
+        /* Animações de efeito */
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1) rotate(-5deg);
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-link:hover .icon {
+            transform: rotate(360deg) scale(1.2);
+        }
+
+        /* Animação de fade-in */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Animação de "pulo" */
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Partículas coloridas no fundo -->
+    <div class="particle" style="top: 50%; left: 20%; background: #ffeb3b;"></div>
+    <div class="particle" style="top: 10%; left: 80%; background: #e91e63;"></div>
+    <div class="particle" style="top: 70%; left: 50%; background: #2196f3;"></div>
+    <div class="particle" style="top: 30%; left: 30%; background: #4caf50;"></div>
+    <div class="particle" style="top: 80%; left: 10%; background: #ff5722;"></div>
+
+    <div class="container">
+        <h1>Minhas Redes Sociais</h1>
+        <div class="links">
+            <a href="https://www.instagram.com/pdg_xx/" target="_blank" class="social-link instagram">
+                <img src="img/instagram.jpg" alt="Instagram" class="icon">
+                Instagram
+            </a>
+            <a href="https://www.tiktok.com/@pdgab_?_t=8rHnlq3YnSB&_r=1" target="_blank" class="social-link tiktok">
+                <img src="img/OIP.jpg" alt="TikTok" class="icon">
+                TikTok
+            </a>
+            <a href="https://www.roblox.com/pt/users/3822674241/profile" target="_blank" class="social-link roblox">
+                <img src="img/download.jpg" alt="Roblox" class="icon">
+                Roblox
+            </a>
+        </div>
+    </div>
+    <script>
+        // Som ao clicar nos links sociais
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const url = link.getAttribute('href');
+
+                // Som ao clicar
+                const audio = new Audio('https://www.soundjay.com/button/button-3.wav');
+                audio.play();
+
+                link.style.transform = "scale(0.9)";
+                setTimeout(() => {
+                    link.style.transform = "scale(1)";
+                    window.open(url, '_blank');
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>
